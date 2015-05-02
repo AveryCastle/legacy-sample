@@ -12,7 +12,7 @@
 <h2>Member List</h2>
 <ul>
 <c:forEach items="${list}" var="member">
-	<li>${member.name}</li>	
+	<li><a href="/member/${member.id}">${member.name}</a></li>	
 </c:forEach>
 </ul>
 </body>
