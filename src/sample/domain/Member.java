@@ -1,5 +1,7 @@
 package sample.domain;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -68,6 +70,13 @@ public class Member {
 	 */
 	public void setJoined(Date joined) {
 		this.joined = joined;
+	}
+	
+	public void display(){
+		System.out.println("id = " + id);
+		System.out.println("name = " + name);
+		DateFormat dateformat = new SimpleDateFormat("yyyy.MM.dd 'at' HH:mm:ss");
+		System.out.println("joined = " + dateformat.format(joined));
 	}
 	
 }

@@ -4,5 +4,7 @@
     <wb-resource deploy-path="/" source-path="web"/>
     <property name="java-output-path" value="/target/classes"/>
     <wb-resource deploy-path="/WEB-INF/classes" source-path="src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
   </wb-module>
 </project-modules>
