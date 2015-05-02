@@ -7,8 +7,7 @@
 	
 	<mvc:annotation-driven/>
 	
-	<bean
-		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="mediaTypes">
 			<map>
 				<entry key="atom" value="application/atom+xml" />
@@ -19,9 +18,8 @@
 		<property name="viewResolvers">
 			<list>
 				<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />
-				<bean
-					class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-					<property name="prefix" value="/WEB-INF/views/" />
+				<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+				    <property name="prefix" value="/WEB-INF/views/" />
 					<property name="suffix" value=".jsp" />
 				</bean>
 			</list>
@@ -33,4 +31,6 @@
 		</property>
 	</bean>
 	
+	<!-- // 맵핑 정보 중에서 스프링이 처리할 수 없는 요청은 서블릿 컨테이너가 제공하는 디폴트 서블릿에게 위임. -->
+	<mvc:default-servlet-handler/>
 </beans>

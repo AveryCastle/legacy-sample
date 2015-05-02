@@ -8,7 +8,7 @@
 <title>Sample Member List</title>
 </head>
 <body>
-<a href="<c:url value='/app/member/form'/>">Add</a>
+<a href="<c:url value='/member/form'/>">Add</a>
 <h2>Member List</h2>
 <ul>
 <c:forEach items="${list}" var="member">

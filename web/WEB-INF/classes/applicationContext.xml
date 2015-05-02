@@ -17,8 +17,7 @@
 	<context:property-placeholder location="classpath*:*.properties" />
 
 	<context:component-scan base-package="sample">
-		<context:exclude-filter expression="org.springframework.stereotype.Controller"
-			type="annotation" />
+		<context:exclude-filter expression="org.springframework.stereotype.Controller" type="annotation" />
 	</context:component-scan>
 
 	<jdbc:embedded-database id="dataSource" type="HSQL">

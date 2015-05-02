@@ -8,8 +8,8 @@
 <title>Add Member</title>
 </head>
 <body>
-<a href="<c:url value='/app/member/list'/>">List</a>
-<form:form commandName="member" action="/app/member"  method="POST">
+<a href="<c:url value='/member/list'/>">List</a>
+<form:form commandName="member" action="/member"  method="POST">
     <p>
         <label>이름</label>
         <form:input path="name" size="50"/>

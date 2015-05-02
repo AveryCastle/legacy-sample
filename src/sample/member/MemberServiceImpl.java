@@ -13,25 +13,26 @@ import sample.domain.Member;
 @Transactional
 public class MemberServiceImpl implements MemberService {
 	
-	@Autowired MemberDao dao;
-
+	@Autowired
+	MemberDao dao;
+	
 	public void add(Member member) {
 		member.setJoined(new Date());
 		dao.add(member);
 	}
-
+	
 	public void delete(int id) {
 		dao.delete(id);
 	}
-
+	
 	public Member get(int id) {
 		return dao.get(id);
 	}
-
+	
 	public List<Member> list() {
 		return dao.list();
 	}
-
+	
 	public void update(Member member) {
 		dao.update(member);
 	}
