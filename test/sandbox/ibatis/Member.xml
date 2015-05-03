@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+	<typeAlias alias="Member" type="sample.domain.Member" />
+	<statement id="createTable">
+		CREATE TABLE IF NOT EXISTS member (
+			id INTEGER PRIMARY KEY,
+			name VARCHAR(20) NOT NULL,
+			joined DATE
+		)
+	</statement>
+
+	<insert id="add" parameterClass="Member">
+		INSERT INTO member (id, name, joined)
+		values (#id#, #name#, #joined#)
+	</insert>
+
+	<select id="get" parameterClass="int" resultClass="Member">
+		SELECT id, name, joined
+		FROM member
+		WHERE id = #id#
+	</select>
+</sqlMap>    
