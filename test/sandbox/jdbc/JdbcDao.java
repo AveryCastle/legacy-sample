@@ -8,6 +8,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Calendar;
 
 import sample.domain.Member;
@@ -32,28 +33,29 @@ public class JdbcDao {
 		}
 		
 		Connection conn = null;
-		PreparedStatement pstmt = null;
+		Statement stmt = null;
 		StringBuilder sqlCreate = new StringBuilder();
 		sqlCreate.append("CREATE TABLE IF NOT EXISTS member( ");
-		sqlCreate.append(" id INTEGER PRIMARY KEY,");
-		sqlCreate.append(" name VARCHAR(20) NOT NULL, ");
-		sqlCreate.append(" joined DATE ");
-		sqlCreate.append(" ); ");
+		sqlCreate.append(" id INTEGER PRIMARY KEY,           ");
+		sqlCreate.append(" name VARCHAR(20) NOT NULL,        ");
+		sqlCreate.append(" joined DATE                       ");
+		sqlCreate.append(" );                                ");
 		
 		try {
 			conn = DriverManager
 			        .getConnection("jdbc:hsqldb:memberdb", "SA", "");
-			pstmt = conn.prepareStatement(sqlCreate.toString());
-			pstmt.executeUpdate();
+			stmt = conn.createStatement();
+			boolean result = stmt.execute(sqlCreate.toString());
+			System.out.println("result = " + result);
 		} catch (SQLException e) {
 			// TODO: handle exception
 			// It is occurred when JDBC code or SQL has some problems.
 			throw new RuntimeException(e);
 		} finally {
 			// TODO: handle exception
-			if (pstmt != null) {
+			if (stmt != null) {
 				try {
-					pstmt.close();
+					stmt.close();
 				} catch (SQLException e2) {
 					// TODO: handle exception
 					throw new RuntimeException(e2);
@@ -95,7 +97,8 @@ public class JdbcDao {
 			insertDate = calGenerate.getTimeInMillis();
 			pstmt.setDate(3, new java.sql.Date(insertDate));
 			int rowCount = pstmt.executeUpdate();
-			System.out.println("rowCount = " + rowCount + ", insertDate = " + insertDate);
+			System.out
+			        .println("rowCount = " + rowCount + ", insertDate = " + insertDate);
 		} catch (SQLException e) {
 			// It is occurred when JDBC code or SQL has some problems.
 			throw new RuntimeException(e);

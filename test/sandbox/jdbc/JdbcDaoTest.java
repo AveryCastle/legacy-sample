@@ -19,7 +19,7 @@ public class JdbcDaoTest {
 		JdbcDao jdbcDao = new JdbcDao();
 		
 		Member member = new Member();
-		member.setId(4);
+		member.setId(5);
 		member.setName("kimonyou");
 		jdbcDao.add(member);
 		
