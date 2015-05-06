@@ -3,7 +3,7 @@
     PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
     "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
-<sqlMap>
+<sqlMap namespace="Member">
 	<typeAlias alias="Member" type="sample.domain.Member" />
 	<statement id="createTable">
 		CREATE TABLE IF NOT EXISTS member (

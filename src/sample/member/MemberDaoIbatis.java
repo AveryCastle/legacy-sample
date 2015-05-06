@@ -9,8 +9,9 @@ import org.springframework.stereotype.Repository;
 import sample.domain.Member;
 
 @Repository
-public class MemberDaoIbatis implements MemberDao {
-	
+public class MemberDaoIbatis //implements MemberDao {
+{
+/*	
 	@Autowired
 	SqlMapClientTemplate sqlMapClientTemplate;
 	
@@ -35,5 +36,5 @@ public class MemberDaoIbatis implements MemberDao {
 	public List<Member> list() {
 		return sqlMapClientTemplate.queryForList("Member.list");
 	}
-	
+*/	
 }
